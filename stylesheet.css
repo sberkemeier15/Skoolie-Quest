@@ -1,0 +1,6 @@
+img {
+    display: block; /* Removes any inline display properties */
+    margin: 0 auto; /* Centers the logo if needed */
+    max-width: 100%; /* Ensures the logo doesn't overflow its container */
+    height: auto; /* Maintains the aspect ratio */
+}
