@@ -3,23 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Skoolie Quest</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <!--Favicon Links-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+     <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
      
 </head>
 <body>
-   <nav class="navbar">
-    <div class="container">
+    <!--Navbar-->
+    <nav class="navbar">
         <div class="logo">
-            <img src="images/Skoolie Quest Logo.png" alt="Skoolie Quest Logo">  
+            <!-- Link to homepage -->
+            <a href="https://www.google.com">
+                <img src="images/Logo Resize 360X360px.png" alt="SkoolieQuest Logo">
+            </a>
         </div>
-        <ul>
-            <li>Social</li>
-            <li>Navigation</li>
-            <li>Builds</li>
+        <!--links to pages when made-->
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Social</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Navigation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Builds</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
         </ul>
+        <!--Need to add transiton later for when a user is signed up-->
+        <div class="user-signup">
+            <a href="#">Sign up</a>
+        </div>
+          <button class="nav-toggle" id="nav-toggle">
+            &#9776;
+          </button>
+    </nav>
+
+    <!--Jumbotron-->
+<div class="jumbotron">
+    <div class="slideshow">
+        <div class="img-fade">
+            <img src="image1.gif" alt="Image 1" style="width:100%">
+            <div class="text">"Quote 1"</div>
+        </div>
+        <div class="slides fade">
+            <img src="image2.gif" alt="Image 2" style="width:100%">
+            <div class="text">"Quote 2"</div>
+        </div>
+        <div class="slides fade">
+            <img src="image3.gif" alt="Image 3" style="width:100%">
+            <div class="text">"Quote 3"</div>
+        </div>
     </div>
-   </nav> 
+</div>   
+        </div>
+    </div>
+</div>
+    
+    
+    
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA61QyxGvUTf5bHKVtRSh5-JYZPPdhSxag" async defer></script>
 
 </body>

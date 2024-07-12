@@ -1,6 +1,203 @@
+/* Main Adjustments */
+/* Hex Code Colors:
+Dark brown: #8B4C33
+Red-brown: #A54B30
+Coral: #D27553
+Orange: #D99247
+Pink: #E3A97C
+Cream: #EFE0CF */
+
+/* Font Styles 
+.sansita-regular {
+    font-family: "Sansita", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .sansita-bold {
+    font-family: "Sansita", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .sansita-extrabold {
+    font-family: "Sansita", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .sansita-black {
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .sansita-regular-italic {
+    font-family: "Sansita", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .sansita-bold-italic {
+    font-family: "Sansita", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .sansita-extrabold-italic {
+    font-family: "Sansita", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .sansita-black-italic {
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  */
+
+/* Nav Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links .nav-link {
+    text-decoration: none;
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-links .nav-link:hover {
+    background-color: #ddd;
+}
+
+.user-signup {
+    display: flex;
+    align-items: center;
+}
+
+.user-signup a {
+    text-decoration: none;
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    padding: 10px 20px;
+    background-color: #A54B30;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 25px;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Jumbotron */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.jumbotron {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+
+.slides {
+  display: none;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 24px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
 img {
-    display: block; /* Removes any inline display properties */
-    margin: 0 auto; /* Centers the logo if needed */
-    max-width: 100%; /* Ensures the logo doesn't overflow its container */
-    height: auto; /* Maintains the aspect ratio */
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+      font-size: 18px;
+  }
 }
