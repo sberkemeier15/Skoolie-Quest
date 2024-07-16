@@ -56,13 +56,43 @@ Cream: #EFE0CF */
   }
   */
 
+/*
+  Apply this to all elements to ensure padding and border are included in the
+  width and height.
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Remove default margin. */
+  margin: 0;
+}
+
+img {
+  /* Ensure images don't overflow their containers. */
+  max-width: 100%;
+}
+
+.full-height-container {
+  /* Fill the entire height of the viewport */
+  height: 100vh;
+  /*
+    Set up a grid, with the Nav Bar at the top, and the Jumbotron filling the
+    remaining space.
+  */
+  display: grid;
+  grid-template-rows: auto minmax(0px, 1fr);
+  grid-template-columns: 100%;
+}
+
 /* Nav Bar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  height: 100px;
+  /* This should not have an explicit height. */
 }
 
 .logo {
@@ -72,8 +102,11 @@ Cream: #EFE0CF */
 
 .logo img {
   width: 200px;
-  height: 200px;
   margin: 0;
+  /*
+    This should not have an explicit height. Update the photo file itself to
+    remove unwanted white space.
+  */
 }
 
 .nav-links {
@@ -120,7 +153,7 @@ Cream: #EFE0CF */
   font-weight: 900;
   font-style: normal;
   padding: 10px 20px;
-  background-color: #A54B30;
+  background-color: #a54b30;
   color: black;
   border-radius: 5px;
   font-size: 16px;
@@ -135,19 +168,26 @@ Cream: #EFE0CF */
   cursor: pointer;
 }
 
- /* Jumbotron */
- .jumbotron {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  height: 500px;
+/* Jumbotron */
+.jumbotron {
+  /*
+    Here's a trick to avoid absolute positioning: Set up a 1 x 1 grid. Then
+    place the children on top of each other.
+  */
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  height: 100%;
 }
 
 .slideshow-container {
-  position: relative;
+  /*
+    As part of the trick, the slideshow container should span the entire grid.
+  */
   width: 100%;
   height: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
 }
 
 .img-fade {
@@ -160,17 +200,25 @@ Cream: #EFE0CF */
 }
 
 .img-fade img {
+  /*
+    Fill the entire space, and use `object-fit` to ensure the image doesn't
+    stretch.
+  */
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
 #slideshow-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* As part of the trick, the slideshow text should span the entire grid. */
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  /* The slideshow text centers itself in the grid cell. */
+  place-self: center;
+  /* The text should be on top of the image. */
+  z-index: 1;
+
   color: white;
   font-size: 3rem;
   font-weight: bold;
@@ -178,18 +226,16 @@ Cream: #EFE0CF */
   text-align: center;
 }
 
-
-
 /* Media Queries */
 @media (max-width: 800px) {
   .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
+    display: none;
+    flex-direction: column;
+    width: 100%;
   }
 
   .nav-toggle {
-      display: block;
+    display: block;
   }
 }
 
