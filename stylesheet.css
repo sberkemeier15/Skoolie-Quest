@@ -1,4 +1,3 @@
-/* Main Adjustments */
 /* Hex Code Colors:
 Dark brown: #8B4C33
 Red-brown: #A54B30
@@ -59,145 +58,146 @@ Cream: #EFE0CF */
 
 /* Nav Bar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 100px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-    width: 200px;
-    height: 200px;
-    margin: 0;
+  width: 200px;
+  height: 200px;
+  margin: 0;
 }
 
 .nav-links {
-    list-style-type: none;
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-start; 
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links .nav-item {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links .nav-link {
-    text-decoration: none;
-    font-family: "Sansita", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    color: black;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.nav-links .nav-link:hover {
-    background-color: #ddd;
-}
-
-.user-signup {
-    display: flex;
-    align-items: center;
-}
-
-.user-signup a {
-    text-decoration: none;
-    font-family: "Sansita", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    padding: 10px 20px;
-    background-color: #A54B30;
-    color: black;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-right: 25px;
-}
-
-.nav-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    /* Jumbotron */
-body {
-  font-family: Arial, sans-serif;
+  list-style-type: none;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
 }
 
-.jumbotron {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links .nav-link {
+  text-decoration: none;
+  font-family: "Sansita", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-links .nav-link:hover {
+  background-color: #ddd;
+}
+
+.user-signup {
+  display: flex;
+  align-items: center;
+}
+
+.user-signup a {
+  text-decoration: none;
+  font-family: "Sansita", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  padding: 10px 20px;
+  background-color: #A54B30;
+  color: black;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 25px;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ /* Jumbotron */
+ .jumbotron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  height: 500px;
 }
 
 .slideshow-container {
   position: relative;
-  max-width: 100%;
-  margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
-.slides {
-  display: none;
+.img-fade {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fade 1.5s;
 }
 
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+.img-fade img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+#slideshow-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 800px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .nav-toggle {
+      display: block;
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-.text {
-  color: #f2f2f2;
-  font-size: 24px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-img {
-  vertical-align: middle;
-  width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-  .text {
-      font-size: 18px;
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
