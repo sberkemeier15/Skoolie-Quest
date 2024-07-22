@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!--Script tags-->
     <script src="./javascript.js" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA61QyxGvUTf5bHKVtRSh5-JYZPPdhSxag" async defer></script>
     
      
 </head>
@@ -32,8 +31,7 @@
                 <img src="images/Logo Resize 360X360px.png" alt="SkoolieQuest Logo">
             </a>
         </div>
-        <!--links to pages when made-->
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             <li class="nav-item">
                 <a class="nav-link" href="#">Social</a>
             </li>
@@ -47,17 +45,31 @@
                 <a class="nav-link" href="#">About Us</a>
             </li>
         </ul>
-        <!--Need to add transiton later for when a user is signed up-->
         <div class="user-signup">
             <a href="#">Sign up</a>
         </div>
-          <button class="nav-toggle" id="nav-toggle">
-            &#9776;
-          </button>
+        
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="#">Social</a></li>
+                <li><a href="#">Navigation</a></li>
+                <li><a href="#">Builds</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+        <div class="ham-nav">
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
+
 
    <!-- Jumbotron -->
    <div class="jumbotron">
+    <h2 id="slideshow-text">Your adventure guide on wheels</h2>
     <div class="slideshow-container">
         <div class="img-fade">
             <img src="/images/Skoolie Beach.jpg" alt="Skoolie Beach">
@@ -70,7 +82,6 @@
         <div class="img-fade">
             <img src="/images/Skoolie Mountains.png" alt="Skoolie Woods">
         </div>
-        <span id="slideshow-text">Your adventure guide on wheels</span>
     </div>
    </div>
     
