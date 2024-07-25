@@ -62,6 +62,7 @@ Cream: #EFE0CF */
 
 body {
   margin: 0;
+  background-color: #EFE0CF;
 }
 
 img {
@@ -135,6 +136,7 @@ img {
   position: fixed;
   top: 0;
   right: -450px;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,6 +189,7 @@ img {
   .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 3;
   }
 
   .ham-menu.active span:nth-child(2) {
@@ -196,6 +199,7 @@ img {
   .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 3;
   }
 
 
@@ -263,6 +267,89 @@ img {
   font-style: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+/* Intro - Card 
+.intro-card {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #e79d5a;
+}
+
+#intro-text {
+  text-align: center;
+  font-family: "Sansita", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  margin: 0 20px;
+  color: black;
+}
+*/
+
+.tile-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tile {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tile-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tile-content {
+  padding: 20px;
+}
+
+.tile-content h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.tile-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.tile-large {
+  grid-column: span 2;
+}
+
+.tile-small {
+  grid-column: span 1;
+  grid-row: span 1;
+  justify-self: start;
+}
+
+.tile-medium {
+  grid-column: span 2;
+  grid-row: span 1;
+  justify-self: end;
 }
 
 /* Animations */
