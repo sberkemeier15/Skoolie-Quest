@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!--Script tags-->
     <script src="./javascript.js" defer></script>
+    <script src="https://kit.fontawesome.com/fba47bf194.js" crossorigin="anonymous"></script>
+    <script async defer src="API.js"></script>
+    
     
      
 </head>
@@ -21,7 +24,7 @@
     <nav class="navbar">
         <div class="logo">
             <!-- Link to homepage -->
-            <a href="https://www.google.com">
+            <a href="#">
                 <img src="images/Logo Resize 360X360px.png" alt="SkoolieQuest Logo">
             </a>
         </div>
@@ -39,8 +42,8 @@
                 <a class="nav-link" href="#">About Us</a>
             </li>
         </ul>
-        <div class="user-signup">
-            <a href="#">Sign up</a>
+        <div class="trip-planner">
+            <a href="#targetSection"> Plan your trip</a>
         </div>
         
         <div class="off-screen-menu">
@@ -79,62 +82,78 @@
     </div>
    </div>
 
-<!-- Intro Card 
-  <div class="intro-card">
-    <p id="intro-text">Plan your next adventure all in one place with Skoolie Quest! Simply enter your destination, planned stops, budget details, and more. Skoolie Quest will then generate a personalized travel itinerary just for you. Enjoy seamless trip planning with integrated Google Maps, budget calculators, and real-time weather updates. </p>
-  </div>  
-  -->
-  <div class="tile-container">
+<!-- Tiles -->
+  <div class="tile-container" id="targetSection">
     <div class="tile tile-large">
-        <img src="https://example.com/image1.jpg" alt="Image 1" class="tile-image">
+        <img src="images/Skoolie Destination.jpg" alt="A bus with in the background. A happy couple standing in front of the bus" class="tile-image">
         <div class="tile-content">
-            <h2>Explore public lands</h2>
-            <p>NPS, USFS, BLM and more</p>
+            <h2>Your Skoolie Adventure Planner: Simplify Your Journey, One Stop at a Time!</h2>
+            <p>Plan your next adventure all in one place with Skoolie Quest! Simply enter your destination, planned stops, budget details, and more. Skoolie Quest will then generate a personalized travel itinerary just for you. Enjoy seamless trip planning with integrated Google Maps, budget calculators, and real-time weather updates.</p>
         </div>
+</div>
+    <div class="tile tile-small">
+        <img src="/images/Map it out.jpg" alt="A map display with items that you would bring on a trip" class="tile-image">
+        <div class="tile-content">
+            <h2>Effortless Trip Planning</h2>
+            <p>Easily input your destination and all your planned stops along the way.</p>
+            <button id="map-btn" onclick="showTile('hidden1')">Map it out</button>
+        </div>
+    </div>
+    <!-- Hidden tile/Map-->
+    <div class="tile tile-medium" id="hidden1" style="display: none;">
+        <div id="map"></div>
+        <div id="stops"></div>
+        <div class="tile-content">
+            <h2>Map it out</h2>
+            <p>Enter your destination and all the stops you want to make along the way. Hit save below to add to your itinerary.</p>
+            </p>
+            <button id="save-btn">
+                Save
+              </button>
+        </div>
+    
     </div>
     <div class="tile tile-small">
-        <img src="https://example.com/image2.jpg" alt="Image 2" class="tile-image">
+        <img src="images/Caught in the rain.jpg" alt="Image 4" class="tile-image">
         <div class="tile-content">
-            <h2>Find the best campsites</h2>
-            <p>Discover top-rated camping spots</p>
+            <h2>Stay Ahead of the Weather</h2>
+            <p>Stay prepared with up-to-date weather information to ensure a smooth and enjoyable journey, no matter where you're headed.</p>
+            <button id="map-btn" onclick="showTile('hidden2')">Forcast it</button>
         </div>
     </div>
-    <div class="tile tile-medium">
-        <img src="https://example.com/image3.jpg" alt="Image 3" class="tile-image">
-        <div class="tile-content">
-            <h2>Adventure awaits</h2>
-            <p>Plan your next trip today</p>
-        </div>
-    </div>
-    <div class="tile tile-small">
-        <img src="https://example.com/image4.jpg" alt="Image 4" class="tile-image">
-        <div class="tile-content">
-            <h2>Hidden gems</h2>
-            <p>Discover secret spots</p>
-        </div>
-    </div>
-    <div class="tile tile-medium">
+    <div class="tile tile-medium" id="hidden2" style="display: none;">
         <img src="https://example.com/image5.jpg" alt="Image 5" class="tile-image">
         <div class="tile-content">
-            <h2>Explore public lands</h2>
-            <p>NPS, USFS, BLM and more</p>
+            <h2>Forcast it</h2>
+            <p>Select your travel dates and let OpenWeather provide you with the forecast for your destination and each stop along the way.</p>
+            <button id="save-btn">
+                Save
+              </button>
         </div>
     </div>
     <div class="tile tile-small">
-        <img src="https://example.com/image6.jpg" alt="Image 6" class="tile-image">
+        <img src="images/Travel Money.jpg" alt="Image 6" class="tile-image">
         <div class="tile-content">
-            <h2>Find the best campsites</h2>
-            <p>Discover top-rated camping spots</p>
+            <h2>Budget Your Adventure</h2>
+            <p>Take control of your travel expenses with our easy-to-use budgeting tool! Our budgeter helps you keep track of your finances, ensuring a stress-free and well-planned journey.</p>
+            <button id="map-btn" onclick="showTile('hidden3')">Calculate it</button>
         </div>
     </div>
-    <div class="tile tile-medium">
+    <div class="tile tile-medium" id="hidden3" style="display: none;">
         <img src="https://example.com/image7.jpg" alt="Image 7" class="tile-image">
         <div class="tile-content">
-            <h2>Adventure awaits</h2>
-            <p>Plan your next trip today</p>
+            <h2>Calculate it</h2>
+            <p>Simply fill in your spending limits and cathorgized cost such as food and gas, and we'll provide a clear breakdown of your costs to keep your adventure within budget.</p>
+            <button id="save-btn">
+                Save
+              </button>
         </div>
     </div>
 </div>
+
+
+<!-- Form -->
+<form action="" class="itinerary"></form>
 
 </body>
 </html>
