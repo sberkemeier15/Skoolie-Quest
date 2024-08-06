@@ -1,5 +1,5 @@
 //imports
-
+ 
 
 
 // Mobile View Toggle in Navbar
@@ -40,8 +40,22 @@ function showTile(tileId) {
 
 
 
+console.log(zipCode);
+async function getWeatherInfo  () {
+    const zipCode = document.getElementById("destination").value;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=41071`;
+    
+        let response = await fetch(apiUrl);
+        let data = response.json();
+        return data
+        .then((data) => {
+            console.log(data);
+        })
+        
+    }
+
 //Map 
-fetch(`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&libraries=places`) // trying to fetch map without showing API key
+//fetch(`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&libraries=places`) // trying to fetch map without showing API key
 
 let map;
 let directionsService;
