@@ -122,7 +122,16 @@
         </div>
     </div>
     <div class="tile tile-medium" id="hidden2" style="display: none;">
-        <img src="https://example.com/image5.jpg" alt="Image 5" class="tile-image">
+        <div class="weather-container">
+            <div class="weather-header">
+                <h2>Weather Forecast</h2>
+                <div class="weather-input">
+                    <label for="destination">Enter your destination:</label>
+                    <input type="text" id="destination" placeholder="Enter your destination">
+                    <button id="get-weather" onclick="getWeatherInfo()">Search</button>
+                </div>
+            </div>
+        </div>
         <div class="tile-content">
             <h2>Forcast it</h2>
             <p>Select your travel dates and let OpenWeather provide you with the forecast for your destination and each stop along the way.</p>
