@@ -348,10 +348,28 @@ html {
   grid-column: span 2;
   grid-row: span 1;
 }
-/* 
- .hidden {
-  display: none;
-}  */
+
+/* Google Maps */
+#map {
+  height: 325px;
+  width: 100%;
+} 
+
+/* Weather Forecast */
+.weather-container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #A67C68;
+}
+
+.weather-header h2 {
+  color: black;
+  padding: 20px;
+  font-family: "Sansita", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
 
 /*Buttons*/
@@ -389,11 +407,7 @@ html {
 #save-btn:hover {
   background-color: #ac583f;
 }
-/* Google Maps */
-#map {
-  height: 325px;
-  width: 100%;
-} 
+
 
 /* Animations */
 @keyframes fade {
