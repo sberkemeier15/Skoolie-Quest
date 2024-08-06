@@ -15,6 +15,9 @@
     <script src="./javascript.js" defer></script>
     <script src="https://kit.fontawesome.com/fba47bf194.js" crossorigin="anonymous"></script>
     <script async defer src="API.js"></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA61QyxGvUTf5bHKVtRSh5-JYZPPdhSxag&loading=async&libraries=places&callback=initMap">
+    </script>
     
     
      
@@ -122,13 +125,17 @@
         </div>
     </div>
     <div class="tile tile-medium" id="hidden2" style="display: none;">
-        <div class="weather-container">
+        <div class="weather-container" id="weather-info">
             <div class="weather-header">
                 <h2>Weather Forecast</h2>
                 <div class="weather-input">
                     <label for="destination">Enter your destination:</label>
                     <input type="text" id="destination" placeholder="Enter your destination">
-                    <button id="get-weather" onclick="getWeatherInfo()">Search</button>
+                    <button id="get-weather" onclick="getWeatherInfo(41071)">41071</button>
+                </div>
+                <div class="weather-forcast-week">
+                    
+
                 </div>
             </div>
         </div>
