@@ -38,42 +38,40 @@ function showTile(tileId) {
     }
 }
 
-
+const weatherInfoBox = document.getElementById("weather-info");
 
 console.log(zipCode);
-async function getWeatherInfo  () {
-    const zipCode = document.getElementById("destination").value;
-    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=41071`;
+async function getWeatherInfo  (zipCode) {
+    
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${zipCode}&days=7`;
     
         let response = await fetch(apiUrl);
         let data = response.json();
         return data
         .then((data) => {
             console.log(data);
+            weatherInfoBox.innerHTML = `The weather in ${data.location.name} is ${data.forecast.forcastday[0].day.condition.text} with a high of ${data.forecast.forecastday[0].day.maxtemp_f}°F and a low of ${data.forecast.forecastday[0].day.mintemp_f}°F.`;
+            const icon = document.createElement("img");
+            icon.src = `https:${data.current.condition.icon}`;
+            weatherInfoBox.appendChild(icon);
+            icon.classList.add("weather-icon");
         })
         
     }
+    initmap();
+    let map = new Map(document.getElementById("map"), {
+        center: { lat: 39.0914, lng: -84.4958 },
+        zoom: 8,
+      })
+
 
 //Map 
 //fetch(`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&libraries=places`) // trying to fetch map without showing API key
 
-let map;
-let directionsService;
-let directionsRenderer;
-
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-
-  map = new Map(document.getElementById("map"), {
-    center: { lat: 39.0914, lng: -84.4958 },
-    zoom: 8,
-  });
-}
-
-initMap();
 
 
-directionsService = new google.maps.DirectionsService();
+
+/*directionsService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer();
     directionsRenderer.setMap(map);
 
