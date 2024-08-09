@@ -1,5 +1,4 @@
 //imports
- 
 
 
 // Mobile View Toggle in Navbar
@@ -10,6 +9,7 @@ hamMenu.addEventListener("click", () => {
   hamMenu.classList.toggle("active");
   offScreenMenu.classList.toggle("active");
 });
+
 
 // JavaScript for Slideshow
 let slideIndex = 0;
@@ -24,7 +24,7 @@ function showSlides() {
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}    
     slides[slideIndex-1].style.display = "flex";  
-    setTimeout(showSlides, 10000); // Change image every 10 seconds
+    setTimeout(showSlides, 10000); // Changes image every 10 seconds
 }
 
 //Tiles
@@ -38,150 +38,59 @@ function showTile(tileId) {
     }
 }
 
-const weatherInfoBox = document.getElementById("weather-info");
 
-console.log(zipCode);
-async function getWeatherInfo  (zipCode) {
-    
-    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${zipCode}&days=7`;
-    
-        let response = await fetch(apiUrl);
-        let data = response.json();
-        return data
-        .then((data) => {
-            console.log(data);
-            weatherInfoBox.innerHTML = `The weather in ${data.location.name} is ${data.forecast.forcastday[0].day.condition.text} with a high of ${data.forecast.forecastday[0].day.maxtemp_f}°F and a low of ${data.forecast.forecastday[0].day.mintemp_f}°F.`;
-            const icon = document.createElement("img");
-            icon.src = `https:${data.current.condition.icon}`;
-            weatherInfoBox.appendChild(icon);
-            icon.classList.add("weather-icon");
-        })
-        
-    }
-    initmap();
-    let map = new Map(document.getElementById("map"), {
-        center: { lat: 39.0914, lng: -84.4958 },
-        zoom: 8,
-      })
-
-
-//Map 
-//fetch(`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&libraries=places`) // trying to fetch map without showing API key
-
-
-
-
-/*directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
-
-    // Add a click event listener to the map to add stops
-    google.maps.event.addListener(map, 'click', function(event) {
-        addStop(event.latLng);
-    });
-
-
-let stops = [];
-
-function addStop(location) {
-    stops.push({
-        location: location,
-        stopover: true
-    });
-    calculateAndDisplayRoute();
-}
-
-function calculateAndDisplayRoute() {
-    directionsService.route({
-        origin: stops[0].location,
-        destination: stops[stops.length - 1].location,
-        waypoints: stops.slice(1, stops.length - 1),
-        travelMode: 'DRIVING'
-    }, function(response, status) {
-        if (status === 'OK') {
-            directionsRenderer.setDirections(response);
-        } else {
-            window.alert('Directions request failed due to ' + status);
+//Weather API
+    const validateZipCode = (zipCode) => {
+        const zipCodeRegex = /^(\d{5}(-\d{4})?|\w+, \w+)$/; //regex for zipcode and city, state
+        if (!zipCodeRegex.test(zipCode)) {
+          alert("Invalid input. Please input a valid zipcode OR city, state");
+          return false;
         }
-    });
-}
+        return true;
+      };
+    
+      
+      const weatherInfoBox = document.getElementById("weather-info");
+      const zipcodeBox = document.getElementById('destination');
+      
+      const getWeatherInfo = async () => {
+          let zipCode = zipcodeBox.value;
+          console.log(zipCode);
 
-
-
-// Search for Google's office in Australia.
-/*var request = {
-    location: map.getCenter(),
-    radius: '500',
-    query: 'Google Sydney'
-};
-
-var service = new google.maps.places.PlacesService(map);
-service.textSearch(request, callback);
-
-// Checks that the PlacesServiceStatus is OK, and adds a marker
-// using the place ID and location from the PlacesService.
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var marker = new google.maps.Marker({
-            map: map,
-            place: {
-                placeId: results[0].place_id,
-                location: results[0].geometry.location
-            }
-        });
-    }
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-
-function addStop(location) {
-    const marker = new google.maps.Marker({
-        position: location,
-        map: map,
-    });
-    markers.push(marker);
-
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ location: location }, (results, status) => {
-        if (status === "OK") {
-            if (results[0]) {
-                stops.push(results[0].formatted_address);
-                updateItinerary();
-            } else {
-                window.alert("No results found");
-            }
-        } else {
-            window.alert("Geocoder failed due to: " + status);
-        }
-    });
-}
-
-// Update itinerary
-function updateItinerary() {
-    const stopsDiv = document.getElementById("stops");
-    stopsDiv.innerHTML = "";
-
-    stops.forEach((stop, index) => {
-        const stopDiv = document.createElement("div");
-        stopDiv.textContent = `Stop ${index + 1}: ${stop}`;
-        stopsDiv.appendChild(stopDiv);
-    });
-}
-
-document.getElementById("itinerary").addEventListener("submit", (e) => {
-    e.preventDefault();
-    // Save stops or send to server
-    console.log("Itinerary saved:", stops);
-});
-
-window.initMap = initMap;
-
-//Enhance form submission
-document.getElementById("itinerary").addEventListener("submit", (e) => {
-  e.preventDefault();
-  // Save stops or send to server
-  console.log("Itinerary saved:", stops);
-});
-
-*/
+          if (!validateZipCode(zipCode)) {
+              return;
+          }
+      
+          const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${WeatherAPIKey}&q=${zipCode}&days=7`;
+          
+              let response = await fetch(apiUrl); 
+              let data = response.json();
+              return data
+              .then((data) => {
+                  console.log(data);
+                  weatherInfoBox.innerHTML = `<h2>${data.location.name}, ${data.location.region}</h2> Forecast for ${data.forecast.forecastday[0].date} through ${data.forecast.forecastday[6].date}`;
+                  for (let i = 0; i < data.forecast.forecastday.length; i++) {
+                      const date = new Date(data.forecast.forecastday[i].date);
+                      const options = { weekday: 'short' };
+                      const weekday = date.toLocaleString('en-US', options);
+                      console.log(weekday);
+                      weatherInfoBox.innerHTML += `<p>${weekday}: ${data.forecast.forecastday[i].day.condition.text} with a high of ${data.forecast.forecastday[i].day.maxtemp_f}°F and a low of ${data.forecast.forecastday[i].day.mintemp_f}°F.</p>`
+                      const icon = document.createElement("img");
+                      icon.src = `https:${data.forecast.forecastday[i].day.condition.icon}`;
+                      weatherInfoBox.appendChild(icon);
+                      icon.classList.add("weather-icon");
+                  }
+                  console.table(data.forecast.forecastday);
+                  const resetButton = document.createElement("button");
+                  resetButton.textContent = "Reset";
+                  weatherInfoBox.appendChild(resetButton);
+                  resetButton.addEventListener("click", () => {
+                      weatherInfoBox.innerHTML = "";
+                      zipcodeBox.value = "";
+                  });
+              })
+              .catch((error) => {
+                  console.error(error);
+              });
+              
+          }

@@ -6,7 +6,7 @@
     <title>Skoolie Quest</title>
     <link rel="stylesheet" href="stylesheet.css">
     <!--Favicon Links-->
-    <link rel="icon" href="images/Logo Resize 360X360px.png">
+    <link rel="icon" href="images/Favicon_170px.png">
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,22 +25,22 @@
     <nav class="navbar">
         <div class="logo">
             <!-- Link to homepage -->
-            <a href="#">
+            <a href="index.html">
                 <img src="images/Logo Resize 360X360px.png" alt="SkoolieQuest Logo">
             </a>
         </div>
         <ul class="nav-links" id="nav-links">
             <li class="nav-item">
-                <a class="nav-link" href="#">Social</a>
+                <a class="nav-link" href="social.html">Social</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Navigation</a>
+                <a class="nav-link" href="navigation.html">Navigation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Builds</a>
+                <a class="nav-link" href="builds.html">Builds</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="aboutus.html">About Us</a>
             </li>
         </ul>
         <div class="trip-planner">
@@ -49,10 +49,10 @@
         
         <div class="off-screen-menu">
             <ul>
-                <li><a href="#">Social</a></li>
-                <li><a href="#">Navigation</a></li>
-                <li><a href="#">Builds</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="social.html">Social</a></li>
+                <li><a href="navigation.html">Navigation</a></li>
+                <li><a href="builds.html">Builds</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
             </ul>
         </div>
         <div class="ham-nav">
@@ -119,18 +119,20 @@
         <div class="tile-content">
             <h2>Stay Ahead of the Weather</h2>
             <p>Stay prepared with up-to-date weather information to ensure a smooth and enjoyable journey, no matter where you're headed.</p>
-            <button id="map-btn" onclick="showTile('hidden2')">Forcast it</button>
+
+            <button id="map-btn" onclick="showTile('hidden2')">Forecast it</button>
         </div>
     </div>
     <div class="tile tile-medium" id="hidden2" style="display: none;">
-        <div class="weather-container" id="weather-info">
+        <div class="weather-container">
             <div class="weather-header">
                 <h2>Weather Forecast</h2>
                 <div class="weather-input">
                     <label for="destination">Enter your destination:</label>
-                    <input type="text" id="destination" placeholder="Enter your destination">
-                    <button id="get-weather" onclick="getWeatherInfo(41071)">41071</button>
+                    <input type="text" id="destination" placeholder="Enter destination" required>
+                    <button  id="get-weather" onclick="getWeatherInfo()">Get Forecast</button>
                 </div>
+                <div id="weather-info"></div>
                 <div class="weather-forcast-week">
 
 
