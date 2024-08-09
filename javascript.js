@@ -52,6 +52,7 @@ function showTile(tileId) {
       
       const weatherInfoBox = document.getElementById("weather-info");
       const zipcodeBox = document.getElementById('destination');
+      const WeatherAPIKey = "9f414a5dacd44d8b896223930240508";
       
       const getWeatherInfo = async () => {
           let zipCode = zipcodeBox.value;
