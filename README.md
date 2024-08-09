@@ -25,8 +25,11 @@ To ensure accuracy in user input, I used Regex to validate the 'Enter Destinatio
 
 
 Set Up Instructions (Special Instructions for the Reviewer):
-1.	Click "Plan Your Trip."
-2.	Enter a destination, either by zip code or city and state.
-3.	View the 7-day forecast for your selected area.
-4.	To get a new forecast, click the "Reset" button and enter a different location.
+1.Clone repository
+2.Navigate to index.html
+3. Open with live server
+4.	Click "Plan Your Trip."
+5.	Enter a destination, either by zip code or city and state.
+6.	View the 7-day forecast for your selected area.
+7.	To get a new forecast, click the "Reset" button and enter a different location.
 Note: The Skoolie Quest logo will always return you to the homepage. All buttons and navigation links are functional, except the save buttons.
